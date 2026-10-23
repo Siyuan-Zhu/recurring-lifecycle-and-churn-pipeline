@@ -1,0 +1,23 @@
+[project]
+name = "recurring-lifecycle-and-churn-pipeline"
+version = "0.1.0"
+description = "Entity resolution, multi-rail reconciliation and churn-alert filtering on synthetic subscription data"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["openpyxl>=3.1,<4"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.6,<1"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/run_pipeline.py" = ["E402"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
